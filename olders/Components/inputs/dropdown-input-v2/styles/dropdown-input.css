@@ -1,0 +1,66 @@
+label {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #222;
+  font-weight: 700;
+}
+
+.investment-select-input {
+  width: 100% !important;
+  text-transform: capitalize;
+  font-size: 14px !important;
+  border: 2px solid lightgrey !important;
+  border-radius: 5px !important;
+}
+
+.select-input::placeholder {
+  font-size: 12px !important;
+  color: rgb(51 51 51 / 50%) !important;
+}
+
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  height: 45px !important;
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector{
+    border: none !important;
+}
+
+.ant-select-selection-search-input {
+  padding: 20px !important;
+}
+
+.ant-select-single:not(.ant-select-customize-input)
+  .ant-select-selector
+  .ant-select-selection-search-input {
+  padding: 20px !important;
+}
+
+.ant-select-arrow{
+  color : black !important;
+  font-weight: bold !important;
+}
+
+input {
+  outline: none !important;
+}
+
+.ant-select:not(.ant-select-customize-input):hover .ant-select-selector {
+  /* border: 1px solid #559f94 !important; */
+}
+
+::selection {
+  background: red !important;
+}
+
+.ant-select-selection-placeholder {
+  margin-top: 9px !important;
+}
+
+.ant-select-selection-item {
+  margin-top: 9px !important;
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector:focus {
+  /* border: 1px solid #559f94 !important; */
+}

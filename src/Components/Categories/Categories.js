@@ -1,7 +1,7 @@
 import React from "react";
 
 const Categories = ({ updateFilters, products }) => {
-  const categories = ['Home theaters', 'Television', 'furniture', 'Dinning set','Handsets','kitchen equipment','Mattress','washing machine']
+  const categories = ['Electronics', 'Furniture', 'Gloceries','kitchen equipment','Handsets','Mattresses']
   return (
     <ul id="best-linkss">
       {/* {console.log(products)} */}

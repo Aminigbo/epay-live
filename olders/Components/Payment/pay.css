@@ -1,0 +1,291 @@
+#payment-con {
+  width: 63%;
+}
+
+#payment-header {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 45px;
+  color: #000000;
+}
+
+#payment-card {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.44);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  height: 100%;
+  margin-top: 30px;
+  padding: 50px;
+}
+
+#card-header-text {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  color: #000000;
+}
+
+#card-secure-text {
+  font-style: normal;
+  font-size: 12px;
+  color: rgba(255, 31, 0, 0.62);
+  padding-left: 20px;
+}
+
+#pay-form {
+  width: 100%;
+  border-top: 1px dashed #c4c4c4;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+#card-header-sub-con {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.lock {
+  width: 10px;
+}
+
+.card-logo {
+  width: 30px;
+  /* height: 10px; */
+}
+
+.card-logo-con {
+  padding: 5px 15px 0 15px;
+}
+
+.master {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.ship {
+  padding-top: 20px;
+}
+
+input {
+  font-size: 16px;
+}
+
+
+/*************************** start of  smaller screen *******************/
+@media only screen and (max-width: 690px) {
+  .card-input {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    outline: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    margin:10px 0px;
+  }
+}
+
+/*************************** start of  bigger screen *******************/
+@media only screen and (min-width: 690px) {
+  .card-input {
+    width: 45%;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    outline: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    margin: 10px
+  }
+}
+
+
+.cvc-input {
+  width: 122px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  outline: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+input::placeholder {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+#card-logo-main {
+  padding-left: 30px;
+}
+
+#card-logo-main2 {
+  padding-left: 30px;
+}
+
+#form-text {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 36px;
+  color: #000000;
+  margin-top: 20px;
+}
+
+#months,
+#years {
+  width: 100%;
+}
+
+.form-dropdown {
+  margin-top: 20px;
+}
+
+/* .input-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: 100%;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+.input-dropdown:hover .dropdown-content {
+  display: block;
+  border: rgb(255, 145, 0);
+}
+
+.dropdown-content a {
+  display: block;
+  color: #000000;
+  padding: 5px;
+  text-decoration: none;
+} */
+
+.check-box {
+  margin-top: 10px;
+}
+
+.box-con {
+  width: 100%;
+}
+
+#mat-box {
+  width: 48%;
+}
+
+#demo-simple-select {
+  height: 10px;
+  border-radius: 20px;
+}
+
+#form-control {
+  width: 100%;
+}
+
+.form-main-control {
+  width: 100%;
+}
+
+.check-box-text {
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: rgba(0, 0, 0, 0.4);
+  padding-left: 10px;
+  margin-top: 10px;
+}
+
+#text-input {
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  outline: none;
+}
+
+.form-line {
+  width: 100%;
+  height: 1px;
+  /* background: #c4c4c4; */
+  border: 1px dashed #c4c4c4;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.input-name::placeholder {
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+
+  color: rgba(0, 0, 0, 0.4);
+}
+
+#layout-back {
+  padding-top: 20px;
+  width: 63%;
+}
+
+@media (min-width: 0px) and (max-width: 992px) {
+  #payment-con {
+    width: 100%;
+  }
+
+  #payment-header {
+    font-size: 20px;
+  }
+
+  #card-secure-text {
+    padding-left: 10px;
+  }
+
+  #payment-card {
+    margin-top: 10px;
+    padding: 5%;
+  }
+
+  .card-input {
+    padding: 12px 10px;
+    font-size: 16px;
+  }
+
+  #layout-back {
+    padding-top: 20px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 600px) {
+  .form-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  #card-logo-main2 {
+    padding-left: 0px !important;
+    width: 100%;
+  }
+
+
+}
+
+@media (min-width: 0px) and (max-width: 400px) {
+  #layout-back {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+  }
+}

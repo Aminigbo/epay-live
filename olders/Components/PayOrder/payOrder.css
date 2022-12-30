@@ -1,0 +1,31 @@
+#payOrder-con {
+  padding: 50px 120px;
+  
+}
+
+#paymentandorder{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+@media (min-width: 0px) and (max-width: 992px) {
+  #paymentandorder{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+}
+
+@media (min-width: 600px) and (max-width: 992px) {
+  #payOrder-con {
+    padding: 50px 10%;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 600px) {
+  #payOrder-con {
+    padding: 50px 5%;
+  }
+}

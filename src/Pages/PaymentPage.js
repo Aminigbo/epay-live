@@ -49,7 +49,7 @@ const PaymentPage = ({ appState }) => {
         id="no-display"
       />
       <PayOrder method={buymethod} params={method} product={filteredProduct} state={state} />
-    </>
+    </> 
   );
 };
 

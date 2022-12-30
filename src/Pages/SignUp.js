@@ -68,7 +68,8 @@ const SignUpPage = ({ appState, signupUser }) => {
   return (
     <main>
       {console.log(state)}
-      {loading == true && <><div style={{ position: "fixed", width: "100%", height: "100%", left: "0px", top: "0px", background: "rgb(0,0,0,0.6)", zIndex: "2000" }}></div> </>}
+      {loading == true && <>
+      <div style={{ position: "fixed", width: "100%", height: "100%", left: "0px", top: "0px", background: "rgb(0,0,0,0.6)", zIndex: "2000" }}></div> </>}
       {/* */}
       <SignNav />
       <SignUp submit={submit} />

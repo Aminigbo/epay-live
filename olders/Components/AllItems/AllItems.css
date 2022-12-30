@@ -1,0 +1,11 @@
+.all-results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+}
+
+.ant-result-title,
+.ant-result-extra {
+  text-align: center;
+}

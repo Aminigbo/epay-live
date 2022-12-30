@@ -1,11 +1,11 @@
 import React from "react";
 import "./easy.css";
 import laptop from "../../assets/images/small-laptop.png";
-import coloredLaptop from "../../assets/images/groceries.png";
+import coloredLaptop from "../../assets/images/slide2.jpg";
 import { Link } from "react-router-dom";
 
-import heroImage5 from "../../assets/images/slide2.jpg";
-import heroImage6 from "../../assets/images/slide1.jpg";
+import heroImage5 from "../../assets/images/awufthisseason.png";
+import heroImage6 from "../../assets/images/allyouneed.png";
 
 const index = ({ singlevideo }) => {
   return (
@@ -24,8 +24,8 @@ const index = ({ singlevideo }) => {
                 src={`https://youtube.com/embed/${'mjFax6dKHo8'}?autoplay=0`}>
               </iframe>
             </div>
-             
-          </div> 
+
+          </div>
         </div>
       </> : <>
         <div className="easy-up  ems">
@@ -63,14 +63,15 @@ const index = ({ singlevideo }) => {
       <div className="easy-down ems">
         <div className="easy-right">
           <p className="easy-text1">
-            Easiest way to acquire that laptop to progress in your carrer
+            EPay your No.1 pay small small company.
           </p>
           <p className="easy-text">
-            You need it? We got it. We make buying your next laptop and paying
-            monthly a dream. We provide you with flexibility you desire.
+            Just a little deposit,
+            we give item(s) to you while you spread balance for many months.
+            No collateral, No Atm Pin/code required, No Delays
           </p>
           <Link to="/product">
-            <button style={{cursor:"pointer"}}  className="easy-btn">Search Products</button>
+            <button style={{ cursor: "pointer" }} className="easy-btn">Search Products</button>
           </Link>
         </div>
       </div>

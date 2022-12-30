@@ -36,7 +36,8 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
 const idOptions = [
   { name: "National ID", value: "National ID", id: 1 },
   { name: "Voters Card", value: "Voters Card", id: 2 },
-  { name: "International Passport", value: "International Passport", id: 3 },
+  { name: "Drivers license", value: "Drivers license", id: 3 },
+  { name: "International Passport", value: "International Passport", id: 4 },
 ];
 
 
@@ -80,6 +81,20 @@ const Index = ({ state, product }) => {
 
 
 
+  const [checkoutvalue, setcheckoutvalue] = useState({
+    name: state.loggedInUser != "" ? state.loggedInUser.fullName : "",
+    email: state.loggedInUser != "" ? state.loggedInUser.email : '',
+    phone: state.loggedInUser != "" ? state.loggedInUser.mobileNumber : '',
+    city: "",
+    address: "",
+    card_number: "",
+    expiration_month: "",
+    expiration_year: "",
+    cvv: "",
+    name_on_card: "",
+    card_pin: "",
+  })
+
 
   // ==================================================
 
@@ -101,9 +116,10 @@ const Index = ({ state, product }) => {
 
   config = {
     reference: new Date().getTime().toString(),
-    email: state.loggedInUser.email,
+    // email: state.loggedInUser.email,
     amount: actualPrice + "00",
-    publicKey: "pk_test_9b62879216dcf007de5692c2f01c954be13b360d",
+    publicKey: "pk_live_d2578d44401c2c1301d99b6a43831182bf81fedb",
+    email: checkoutvalue.email
   };
 
 
@@ -132,7 +148,7 @@ const Index = ({ state, product }) => {
           userEmail: state.loggedInUser.email,
           productID: product.product_code
         })
-        .then(response => { 
+        .then(response => {
           let ref = response.body[0].payment.reference;
           navigate(`/confirm/${id}/${ref}`)
           setloading(false)
@@ -151,10 +167,10 @@ const Index = ({ state, product }) => {
           amount: payload.amountpaid,
           data: { ...payload, user: state.loggedInUser },
         })
-        .then(response => { 
+        .then(response => {
         })
         .catch(error => {
-          alert("An error occured.")  
+          alert("An error occured.")
         })
 
 
@@ -191,19 +207,6 @@ const Index = ({ state, product }) => {
 
 
 
-  const [checkoutvalue, setcheckoutvalue] = useState({
-    name: state.loggedInUser != "" ? state.loggedInUser.fullName : "",
-    email: state.loggedInUser != "" ? state.loggedInUser.email : '',
-    phone: state.loggedInUser != "" ? state.loggedInUser.mobileNumber : '',
-    city: "",
-    address: "",
-    card_number: "",
-    expiration_month: "",
-    expiration_year: "",
-    cvv: "",
-    name_on_card: "",
-    card_pin: "",
-  })
 
 
 
@@ -341,7 +344,7 @@ const Index = ({ state, product }) => {
                 type="text"
                 placeholder="1222 4444 1111 0303"
                 className="card-input"
-                maxLength={16}
+                maxLength={12}
                 value={checkoutvalue.card_number}
                 onChange={(e) => {
                   setcheckoutvalue({
@@ -467,6 +470,15 @@ const Index = ({ state, product }) => {
                         <MenuItem value="2020">2020</MenuItem>
                         <MenuItem value="2021">2021</MenuItem>
                         <MenuItem value="2022">2022</MenuItem>
+                        <MenuItem value="2022">2023</MenuItem>
+                        <MenuItem value="2022">2024</MenuItem>
+                        <MenuItem value="2022">2025</MenuItem>
+                        <MenuItem value="2022">2026</MenuItem>
+                        <MenuItem value="2022">2027</MenuItem>
+                        <MenuItem value="2022">2028</MenuItem>
+                        <MenuItem value="2022">2029</MenuItem>
+                        <MenuItem value="2022">2030</MenuItem>
+                        <MenuItem value="2022">2031</MenuItem>
                       </Select>
                     </FormControl>
                   </div>
@@ -502,7 +514,7 @@ const Index = ({ state, product }) => {
             {/* <p id="form-text">Name on Card</p> */}
             <input
               type="text"
-              placeholder="Card pin"
+              placeholder="BVN"
               className="card-input"
               value={checkoutvalue.card_pin}
               onChange={(e) => {
@@ -647,7 +659,7 @@ const Index = ({ state, product }) => {
         className="check-box"
       />
       <label HTMLfor="terms" className="check-box-text">
-        Accept Terms & Conditions
+        Accept <Link to="/tc">Terms</Link> & <Link to="/tc">Conditions</Link>
       </label>
       <div className="layout1" id="layout-back">
         {/* <Link to="/product" id="link-lin">

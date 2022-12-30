@@ -58,8 +58,8 @@ const Index = ({ products, addToCart, state, cartprice, loading, start, end, tit
   const updateFilters_2 = (cat) => {
     console.log(cat)
     let filtCat = products.filter(e => e.category == cat)
-    console.log(filtCat)
-    console.log(products)
+    // console.log(filtCat)
+    // console.log(products)
     setproductsstate(filtCat)
   }
 
@@ -81,7 +81,7 @@ const Index = ({ products, addToCart, state, cartprice, loading, start, end, tit
           </div>
         </form>
         <div id="best-con">
-          <p>Best Selling Product</p>
+          <p>Best Selling Products</p>
         </div>
         <div id="best-link-con">
           <Categories categories={products} products={productsstate} updateFilters={updateFilters_2} />
@@ -109,7 +109,7 @@ const Index = ({ products, addToCart, state, cartprice, loading, start, end, tit
 
   return (
     <section className="best">
-
+      {console.log(productsstate)}
 
       {allowSearch == true && <>
         <form className="best-form" onSubmit={(e) => e.preventDefault()}>
@@ -151,12 +151,15 @@ const Index = ({ products, addToCart, state, cartprice, loading, start, end, tit
 
 
       {filteredData.length != 0 ? (
-        <div id="display-con" className="best-grid">
-          {filteredData.slice(start, end).map((product) => {
-            return <Laptop state={state} cartPrice={cartprice} addToCart={addToCart} key={product.id} product={product} />;
-          })}
-          {/* <AllItems items={products} /> */}
-        </div>
+        <>
+        {console.log(filteredData)}
+          <div id="display-con" className="best-grid">
+            {filteredData.map((product) => {
+              return <Laptop state={state} cartPrice={cartprice} addToCart={addToCart} key={product.id} product={product} />;
+            })}
+            {/* <AllItems items={products} /> */}
+          </div>
+        </>
       ) : <>
         <div id="" className="best-grid">
           {productsstate.slice(start, end).map((product) => {
@@ -170,7 +173,7 @@ const Index = ({ products, addToCart, state, cartprice, loading, start, end, tit
 
       {/* {console.log(state)} */}
       <div className="view-con">
-        <Link to="/product" id="link-lin">
+        <Link to="/product/all" id="link-lin">
           <div className="view-main">
             <p className="view-text">View all</p>
             <img src={arrow} alt="#" id="arrow" />

@@ -20,7 +20,7 @@ const HomePage = ({ appState, disp_products, addToCart, addCartAmount }) => {
       .from("products")
       .select("*")
       .then(success => {
-        // console.log(success)
+        console.log(success)
         if (success.error != null) {
           setproducts([])
           disp_products([])
@@ -62,10 +62,12 @@ const HomePage = ({ appState, disp_products, addToCart, addCartAmount }) => {
 
       {/* {console.log(state)} */}
       <HomeNav className={"link-line"} state={state} />
-      <HeroScroll />
+      <HeroScroll /> 
       <BestSelling setfilter={true} allowSearch={true} title={"Best Selling Product"} start={0} end={8}  state={state} addToCart={addToCart} products={state.products} cartprice={addCartAmount} loading={loading} />
       <Easy singlevideo={false} />
-       <BestSelling setfilter={false} allowSearch={false} title={"More products"} start={10} end={18} state={state} addToCart={addToCart} products={state.products} cartprice={addCartAmount} loading={loading} />
+       {/* <BestSelling setfilter={false} allowSearch={false} title={"More products"} start={18} end={28} state={state} addToCart={addToCart} products={state.products} cartprice={addCartAmount} loading={loading} /> */}
+       <BestSelling setfilter={false} allowSearch={false} title={"More products"} start={30} end={38}  state={state} addToCart={addToCart} products={state.products} cartprice={addCartAmount} loading={loading} />
+      
       <How />
       <br/>
       <br/>

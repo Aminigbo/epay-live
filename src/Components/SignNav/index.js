@@ -1,6 +1,6 @@
 import React from "react";
 import "./signNav.css";
-import logo from "../../assets/icons/logo.svg";
+import logo from "../../assets/images/side1.png";
 import { Link } from "react-router-dom";
 
 const index = () => {

@@ -2,7 +2,7 @@ import React from "react";
 import "./order.css";
 import { Link } from "react-router-dom";
 import { PaystackButton, PaystackConsumer } from "react-paystack";
-
+import base from "../../assets/PRIVACY POLICY.docx"
 
 const index = ({ method, product, params, state }) => {
   let month = params.split("-")[1];
@@ -14,7 +14,7 @@ const index = ({ method, product, params, state }) => {
 
 
 
-  return (
+  return ( 
     <>
       {method == "INSTALLMENT" && <>
         <div id="order-con">
@@ -29,7 +29,7 @@ const index = ({ method, product, params, state }) => {
               {product.description}
             </p>
           </div>
-          <div id="order-line"></div>
+          <div id="order-line"></div> 
           <div id="order-free-con">
             <p id="order-free-text">Delivery charges apply in all CGI deals</p>
           </div>
@@ -41,7 +41,7 @@ const index = ({ method, product, params, state }) => {
           </div>
           <div id="order-line"></div>
           <p id="payment-header" className="order-loan">
-            GCi Summary
+            CGI Summary
           </p>
           <div id="order-line"></div>
           <p id="order-laptop-text" className="one-month">
@@ -64,7 +64,7 @@ const index = ({ method, product, params, state }) => {
           <br/>
           <div style={{textAlign:"center"}}>
             <a
-              href={'base'}
+              href={base}
               download
               rel="noopener noreferrer"
             >

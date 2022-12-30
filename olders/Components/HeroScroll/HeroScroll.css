@@ -1,0 +1,157 @@
+.hero-scroll{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 80px 120px;
+  background: #f4fdf8;
+}
+
+.scroll-con {
+  width: 60%;
+}
+
+.scroll-img-div{
+  height: 400px !important;
+  width: 100% !important;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.carousel img{
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 10px;
+}
+
+.carousel-status {
+  display: none;
+}
+
+.thumbs-wrapper {
+  display: none;
+}
+.carousel .control-prev.control-arrow {
+  margin-right: 200px !important;
+  position: absolute !important;
+  z-index: 999999 !important;
+}
+
+.carousel.carousel-slider .control-arrow:hover {
+  background-color: transparent !important;
+}
+
+.carousel .control-dots {
+  position: absolute !important;
+  z-index: 1 !important;
+  margin-top: 50px !important;
+  margin-bottom: -30px !important;
+}
+
+.carousel.carousel-slider {
+  overflow: visible !important;
+}
+
+.carousel .control-dots .dot.selected {
+  background: #ff1f00;
+  opacity: 1;
+}
+
+.hero-right{
+  width: 38%;
+}
+
+.hero-no-scroll-con1{
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+  height: 400px;
+}
+
+.hero-no-scroll-single-con{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.hero-no-scroll-single-con img{
+  width: 100%;
+  height: 100%;
+}
+
+.hero-no-scroll-con2{
+  display: none;
+}
+
+.hero-right-carousel{
+  height: 100%;
+}
+
+.hero-right-carousel-main{
+  height: 100%;
+  width: 100%;
+}
+
+.hero-right-scroll-img-div{
+  width: 95%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.hero-right-scroll-img-div img{
+  height: 100%;
+  width: 100%;
+}
+
+.react-multiple-carousel__arrow{
+  background: transparent !important;
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .hero-scroll {
+    padding: 80px 80px;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 992px){
+  .hero-scroll {
+    display: block;
+  }
+
+  .scroll-con {
+    width: 100%;
+  }
+
+  .hero-right{
+    width: 100%;
+  }
+
+  .hero-no-scroll-con1{
+    display: none;
+  }
+
+  .hero-no-scroll-con2{
+    display: inline-block;
+    margin-top: 50px;
+
+    /* width:100px; */
+  }
+
+  .scroll-img-div{
+    height: 100% !important;
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 992px) {
+  .hero-scroll {
+    padding: 80px 10%;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 600px) {
+  .hero-scroll {
+    padding: 80px 5%;
+  }
+}

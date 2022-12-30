@@ -1,0 +1,13 @@
+.file-upload {
+    height: 50px;
+    border: 1px dashed #c4c4c4;
+    border-radius: 3px;
+    padding: 1em;
+    border-color: #e4e4e4;
+    width: 100%;
+}
+
+input#file-upload-button {
+    border: 1px solid pink;
+    background-color: red !important;
+}

@@ -21,7 +21,7 @@ const index = ({ title, number, img, text }) => {
         </div>
       </div>
       <div className="circle-text-con">
-        <p className="circle-text1">{title}</p>
+        <p className="circle-text1">{title}</p> 
         <p className="circle-text2">
          {text}
         </p>

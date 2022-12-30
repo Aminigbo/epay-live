@@ -1,0 +1,153 @@
+
+
+
+/*************************** start of  smaller screen *******************/
+@media only screen and (max-width: 690px) {
+
+
+
+.right-con {
+  
+  display:none
+}
+
+.left-con {
+  width: 100%;
+}
+
+}
+
+
+
+/*************************** start of  bigger screen *******************/
+@media only screen and (min-width: 690px) {
+
+.left-con,
+.right-con {
+  width: 50%;
+}
+
+
+}
+
+
+
+
+.layout1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.layout2 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.layout3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.layout {
+  width: 100%;
+  padding:46px 4px;
+}
+
+.left-con {
+  border: 1px solid #ff1f00;
+  border-radius: 20px;
+  padding: 10px 40px 40px 40px;
+}
+
+.layout-img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.layout-text {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  color: #000000;
+  text-align: center;
+}
+
+.layout-main-con {
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.gmail,
+.facebook {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 10px !important;
+  width: 49%;
+}
+
+.sign-icon {
+  width: 25px;
+}
+
+.text {
+  margin-left: 20px !important;
+  font-size: 14px;
+}
+
+.or-con {
+  padding: 17px 10% 0 10%;
+}
+
+.left-line,
+.right-line {
+  width: 50%;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.or-text {
+  font-style: normal;
+  font-size: 24px;
+  line-height: 48px;
+  color: #000000;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.btn {
+  background: #f80c0c;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  /* padding: 5px; */
+  width: 100%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 60px;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 30px;
+}
+
+.alt {
+  font-style: normal;
+  /* font-weight: 400; */
+  font-size: 16px;
+  line-height: 30px;
+  margin-top: 21px;
+  color: #000000;
+  text-align: center;
+}
+
+.log {
+  color: #ff1f00;
+  margin-left: 13px;
+  text-decoration: none;
+}
+
+.error-text {
+  color: #ff1f00;
+}

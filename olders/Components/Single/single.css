@@ -1,0 +1,130 @@
+#single-con {
+  padding: 80px 120px 20px 120px;
+}
+
+.single-main-text-con {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-main-text {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 2;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #000000;
+}
+
+.second-con {
+  padding-top: 50px;
+}
+
+.sin-btn-con {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.sin-btn {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 10px 40px;
+  color: #ffffff;
+  background: #ff1f00;
+  border: #ff1f00;
+  border-radius: 5px;
+}
+
+.product-details {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.product-details h2 {
+  color: #fff;
+  text-align: center;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 2;
+  letter-spacing: -0.02em;
+  background: #ff1f00;
+}
+.product-details p {
+  /* color: #fff; */
+  font-style: normal;
+  font-size: 16px;
+  padding-bottom: 15px;
+}
+
+.product-details__left,
+.product-details__right {
+  width: 35%;
+  /* border: 1px solid #ff1f00; */
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0px 4px 8px -4px #ff1f00;
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  #single-con {
+    padding: 80px 80px 20px 80px;
+  }
+
+  .product-details__left,
+  .product-details__right {
+    width: 40%;
+  }
+}
+@media (min-width: 600px) and (max-width: 992px) {
+  #single-con {
+    padding: 80px 10% 20px 10%;
+  }
+
+  .product-details__left,
+  .product-details__right {
+    width: 48%;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 600px) {
+  #single-con {
+    padding: 80px 5% 20px 5%;
+  }
+
+  .single-main-text {
+    font-size: 20px;
+  }
+
+  .product-details{
+    display: block;
+  }
+
+  .product-details h2 {
+    font-size: 16px;
+  }
+  .product-details p {
+    font-size: 14px;
+  }
+
+  .product-details__left,
+.product-details__right {
+  width: 100%;
+}
+
+.product-details__right{
+  margin-top: 30px;
+}
+}

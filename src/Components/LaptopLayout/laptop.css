@@ -4,7 +4,7 @@
   /* padding:10px; */
   /* background-color: #94bbc0; */
   /* background-color: #ff1f00; */
-  background: #198EA0;
+  background: rgba(75, 191, 201, 1);
   
 }
 
@@ -19,7 +19,7 @@
 
 .apple {
   /* background: #213A5B; */
-  background-color: #198EA0;
+  background-color: rgba(75, 191, 201, 1);
   padding:10px
 }
 

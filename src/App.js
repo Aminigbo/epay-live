@@ -20,7 +20,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import {
   BrowserRouter as Router,
   // Switch,
-  Routes, 
+  Routes,
   Route,
 } from "react-router-dom";
 
@@ -35,7 +35,7 @@ export default function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/sign" element={<SignUp />} />
             <Route path="/confirm/:id/:ref" element={<Confirmation />} />
-            <Route path="/product" element={<ProductPage />} />
+            <Route path="/product/:category" element={<ProductPage />} />
             <Route path="/payment/:id/:method" element={<PaymentPage />} />
             <Route path="/Admin" element={<DashBoardPage />} />
             <Route path="/cart" element={<CartPage />} />

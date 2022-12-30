@@ -18,7 +18,7 @@ const index = ({ method, product, state, params }) => {
         <Order method={method} params={params} product={product} state={state} />
       </div>
      
-    </main>
+    </main>  
   );
 };
 

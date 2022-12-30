@@ -1,0 +1,103 @@
+.how-lay {
+  width: 100%;
+  position: relative;
+}
+
+#how-img-con {
+  width: 100%;
+  height: 200px;
+}
+
+#img {
+  width: 80%;
+  height: 100%;
+}
+
+.circles {
+  position: absolute;
+  width: 100%;
+  top: 178px;
+}
+
+.circles-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle1 {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background: #ff1f00;
+}
+
+.circle2 {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background: #000000;
+}
+
+.circle-text {
+  color: #fff;
+  font-size: 10px;
+}
+
+.circle-text-con {
+  padding-top: 30px;
+}
+
+.circle-text1 {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  /* line-height: 119%; */
+  letter-spacing: 0.2em;
+  color: #000000;
+  text-align: center;
+}
+
+.circle-text2 {
+  font-style: normal;
+  font-size: 16px;
+  /* line-height: 119%; */
+  text-align: center;
+  letter-spacing: 0.2em;
+  color: #000000;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.mobile {
+  display: none;
+}
+
+@media (min-width: 0px) and (max-width: 600px) {
+  .how-lay {
+    width: 80%;
+    position: relative;
+    margin-top: 10px;
+  }
+
+  #how-img-con {
+    display: none;
+  }
+  .mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1005;
+  }
+
+  .mobile-how-img-con {
+    width: 250px;
+    height: 180px;
+  }
+
+  .circles {
+    position: absolute;
+    width: 100%;
+    top: 160px;
+  }
+}

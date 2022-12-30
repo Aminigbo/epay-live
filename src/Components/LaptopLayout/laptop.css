@@ -1,0 +1,103 @@
+#laptop-main-con {
+  width: min(100%, 350px);
+  /* box-shadow: 1px 2px 4px #ff1f00; */
+  /* padding:10px; */
+  /* background-color: #94bbc0; */
+  /* background-color: #ff1f00; */
+  background: #198EA0;
+  
+}
+
+#con,
+.apple {
+  /* padding: 20px 20px 0px 20px; */
+}
+
+#con {
+  /* margin-bottom: 10px; */
+}
+
+.apple {
+  /* background: #213A5B; */
+  background-color: #198EA0;
+  padding:10px
+}
+
+.laptop {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+}
+
+#lap-img-con {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+#apple {
+  font-style: normal;
+  font-size: 14px;
+  letter-spacing: -0.115em;
+  color: #000000;
+}
+
+#mac {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  color: #000000;
+  text-decoration: none;
+}
+
+#star {
+  width: 10px;
+  margin-right: 5px;
+}
+
+#starting-price {
+  font-style: normal;
+  font-size: 10px;
+  color: #000000;
+  padding-top: 15px;
+}
+
+.price-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  padding-top: 3px;
+}
+
+.hash {
+  padding-top: 50px;
+  display: block;
+}
+
+#price-con {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 48px;
+  color: #ef3d25;
+}
+
+#buy-btn {
+  background: #ff1f00;
+  /* background: #000000; */
+  border-radius: 10px;
+  color: white;
+  padding: 5px 20px;
+  border:none
+}
+
+.add {
+  color: #fff;
+  font-size: 16px !important;
+}

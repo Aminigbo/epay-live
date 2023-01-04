@@ -428,7 +428,7 @@ const Index = ({ state, product }) => {
                 type="text"
                 placeholder="1222 4444 1111 0303"
                 className="card-input"
-                maxLength={12}
+                maxLength={16}
                 value={checkoutvalue.card_number}
                 onChange={(e) => {
                   setcheckoutvalue({

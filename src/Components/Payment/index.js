@@ -68,7 +68,7 @@ const Index = ({ state, product }) => {
   const verifyTransaction = (ref, callback) => {
 
     var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer sk_test_3f1409d8807cc168a4de02c04f83c2a069a5ca2a");
+    myHeaders.append("Authorization", "Bearer sk_live_937dab5a64d1f784c0f150b0b872c509aec94228");
 
     // var formdata = new FormData();
 
@@ -187,7 +187,7 @@ const Index = ({ state, product }) => {
     // email: state.loggedInUser.email,
     amount: actualPrice + "00",
     // publicKey: "pk_live_d2578d44401c2c1301d99b6a43831182bf81fedb",
-    publicKey: "pk_test_00d303e0121c43004717cb244216f0db06273d5d",
+    publicKey: "pk_live_d2578d44401c2c1301d99b6a43831182bf81fedb",
     email: checkoutvalue.email
   };
 

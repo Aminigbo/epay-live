@@ -61,7 +61,7 @@ const Laptop = ({ product }) => {
         <CardActions style={{ background: "#00ADF2", height: "100px" }}>
           <Button size="small" style={{ color: "white" }} >
             <button id="buy-btn"  style={{ background: "#00ADF2" }} >
-              <b>NGN {product.price * off}</b>
+              <b>₦ {product.price * off}</b>
             </button>
           </Button>
           <Link to={`/view-products/${product.product_code}`} size="small" style={{ float: "right" }}><button id="buy-btn" >

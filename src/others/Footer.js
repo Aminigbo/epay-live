@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 const Footer = ({ content }) => {
   window.scrollTo(0, 0);
-
+  const navigate = useNavigate()
 
   return (
     <>
@@ -438,9 +438,11 @@ Cookies are text files made up of tiny bits of data. It allows a web server to t
 
 
 
-      <Link to="/" className="footer-form">
-        <button >Back to home</button>
-      </Link>
+      <div className="footer-form">
+        <button onClick={() => {
+          navigate(-1)
+        }} >Back to home</button>
+      </div>
     </>
   )
 }

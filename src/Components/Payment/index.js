@@ -13,7 +13,8 @@ import FileInputs from "../inputs/file-inputs/FileInputs";
 import { supabase } from '../../configurations';
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { PaystackButton, PaystackConsumer } from "react-paystack";
-
+var axios = require('axios');
+const https = require('https')
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
   "label + &": {
@@ -64,6 +65,83 @@ const Index = ({ state, product }) => {
   let check = method.split("-")[1]
 
 
+  const verifyTransaction = (ref, callback) => {
+
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer sk_test_3f1409d8807cc168a4de02c04f83c2a069a5ca2a");
+
+    // var formdata = new FormData();
+
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+
+    fetch(`https://api.paystack.co/transaction/verify/${ref}`, requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        let resp = JSON.parse(result);
+
+        if (resp.status == true) {
+          console.log(resp)
+          callback(resp.data)
+        } else {
+
+        }
+      })
+      .catch(error => console.log('error', error));
+  }
+
+  // verify BVN and card details
+  const verifyBVN = (bvn, callback) => {
+    setloading(true)
+    const params = JSON.stringify({
+      bvn: "22432471515",
+      account_number: "0001234567",
+      bank_code: "058",
+      first_name: "Jane",
+      last_name: "Doe",
+      middle_name: "Loren"
+    })
+
+    const options = {
+      hostname: 'api.paystack.co',
+      port: 443,
+      path: '/bvn/match',
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer sk_live_937dab5a64d1f784c0f150b0b872c509aec94228',
+        'Content-Type': 'application/json'
+      }
+    }
+
+    const req = https.request(options, res => {
+      let data = ''
+
+      res.on('data', (chunk) => {
+        data += chunk
+      });
+
+      res.on('end', () => {
+        const response = JSON.parse(data)
+        if (response.status == true) {
+          callback(handleSuccess, handleClose)
+        } else {
+          alert(response.message)
+          callback(handleSuccess, handleClose)
+        }
+        setloading(false)
+      })
+    }).on('error', error => {
+      console.error(error)
+      setloading(false)
+    })
+
+    req.write(params)
+    req.end()
+  }
+
   const handleChange = (value) => {
     // console.log(`selected ${value}`);
   };
@@ -92,7 +170,7 @@ const Index = ({ state, product }) => {
     expiration_year: "",
     cvv: "",
     name_on_card: "",
-    card_pin: "",
+    user_bvn: "",
   })
 
 
@@ -104,21 +182,12 @@ const Index = ({ state, product }) => {
 
   // paystack payload
   let config = {};
-
-  //  if (User != null) {
-  //     config = {
-  //        reference: new Date().getTime().toString(),
-  //        email: User.user.email,
-  //        amount: amount + "00",
-  //        publicKey: "pk_test_9b62879216dcf007de5692c2f01c954be13b360d",
-  //     };
-  //  }
-
   config = {
     reference: new Date().getTime().toString(),
     // email: state.loggedInUser.email,
     amount: actualPrice + "00",
-    publicKey: "pk_live_d2578d44401c2c1301d99b6a43831182bf81fedb",
+    // publicKey: "pk_live_d2578d44401c2c1301d99b6a43831182bf81fedb",
+    publicKey: "pk_test_00d303e0121c43004717cb244216f0db06273d5d",
     email: checkoutvalue.email
   };
 
@@ -127,6 +196,7 @@ const Index = ({ state, product }) => {
   // you can call this function anything
   const handleSuccess = (ref) => {
     if (ref.message == "Approved") {
+      console.log(ref)
       setloading(true)
       let payload = {
         ...checkoutvalue,
@@ -137,41 +207,52 @@ const Index = ({ state, product }) => {
         ref,
 
       }
+      //  save to db
+      const dbSave = (data) => {
+        new_supabase
+          .from("orders")
+          .insert({
+            user: state.loggedInUser,
+            data: payload,
+            payment: {
+              ref: payload.ref,
+              auth: data
+            },
+            product: product,
+            userEmail: state.loggedInUser.email,
+            productID: product.product_code
+          })
+          .then(response => {
+            let ref = response.body[0].payment.ref.reference;
+            navigate(`/confirm/${id}/${ref}`)
+            // console.log(ref)
+            // setloading(false)
+          })
+          .catch(error => {
+            // alert("An error occured.")
+            console.log(error)
+            setloading(false)
+          })
 
-      new_supabase
-        .from("orders")
-        .insert({
-          user: state.loggedInUser,
-          data: payload,
-          payment: payload.ref,
-          product: product,
-          userEmail: state.loggedInUser.email,
-          productID: product.product_code
-        })
-        .then(response => {
-          let ref = response.body[0].payment.reference;
-          navigate(`/confirm/${id}/${ref}`)
-          setloading(false)
-        })
-        .catch(error => {
-          // alert("An error occured.")
-          // console.log(error)
-          setloading(false)
-        })
 
+        new_supabase
+          .from("revenue")
+          .insert({
+            ref: {
+              ref: payload.ref,
+              auth: data
+            },
+            amount: payload.amountpaid,
+            data: { ...payload, user: state.loggedInUser },
+          })
+          .then(response => {
+          })
+          .catch(error => {
+            alert("An error occured.")
+          })
+      }
+      verifyTransaction(ref.reference, dbSave)
 
-      new_supabase
-        .from("revenue")
-        .insert({
-          ref: payload.ref,
-          amount: payload.amountpaid,
-          data: { ...payload, user: state.loggedInUser },
-        })
-        .then(response => {
-        })
-        .catch(error => {
-          alert("An error occured.")
-        })
 
 
 
@@ -203,14 +284,16 @@ const Index = ({ state, product }) => {
     onSuccess: (reference) => handleSuccess(reference),
     onClose: handleClose,
   };
-
-
-
-
-
-
-
   const [loading, setloading] = useState(false)
+
+
+
+  React.useEffect(() => {
+
+  }, [])
+
+
+
 
 
   return (
@@ -219,6 +302,7 @@ const Index = ({ state, product }) => {
       {/* {checkFormInputs()} */}
       {/* {console.log(method)} */}
       <p id="payment-header">Payment</p>
+
       {check == null &&
         <>
           <div id="payment-card">
@@ -487,6 +571,7 @@ const Index = ({ state, product }) => {
               <div id="card-logo-main2">
                 <p id="form-text">CVC</p>
                 <input
+                 maxLength={3}
                   value={checkoutvalue.cvv}
                   onChange={(e) => {
                     setcheckoutvalue({
@@ -515,12 +600,13 @@ const Index = ({ state, product }) => {
             <input
               type="text"
               placeholder="BVN"
+              maxLength={11}
               className="card-input"
-              value={checkoutvalue.card_pin}
+              value={checkoutvalue.user_bvn}
               onChange={(e) => {
                 setcheckoutvalue({
                   ...checkoutvalue,
-                  card_pin: e.target.value
+                  user_bvn: e.target.value
                 })
               }}
             />
@@ -679,14 +765,18 @@ const Index = ({ state, product }) => {
                 ) {
 
                   if (check != null) {
-                    if (checkoutvalue.name.length < 8 || checkoutvalue.email.length < 5 ||
-                      checkoutvalue.phone.length < 11 || checkoutvalue.city.length < 10 || checkoutvalue.address.length < 10
+                    if (
+                      checkoutvalue.name.length < 8 || checkoutvalue.email.length < 5 ||
+                      checkoutvalue.phone.length < 11 || checkoutvalue.city.length < 5 || checkoutvalue.address.length < 5
                       || checkoutvalue.card_number.length < 12 || checkoutvalue.expiration_month.length == '' || checkoutvalue.expiration_year.length == ''
-                      || checkoutvalue.cvv.length < 3 || checkoutvalue.name_on_card.length < 7 || checkoutvalue.card_pin.length < 4) {
+                      || checkoutvalue.cvv.length < 3 || checkoutvalue.name_on_card.length < 7 || checkoutvalue.user_bvn.length < 10
+                    ) {
                       alert("Provide all details")
 
                     } else {
-                      initializePayment(handleSuccess, handleClose);
+                      // initializePayment(handleSuccess, handleClose);
+                      console.log("verify bvn and card")
+                      verifyBVN(checkoutvalue.user_bvn, initializePayment)
                     }
                     // console.log(checkoutvalue)
                   } else if (check == null) {
@@ -695,7 +785,8 @@ const Index = ({ state, product }) => {
                     ) {
                       alert("Provide all details")
                     } else {
-                      initializePayment(handleSuccess, handleClose);
+                      // initializePayment(handleSuccess, handleClose);
+                      // console.log("verify bvn and card") 
                     }
                   }
 
